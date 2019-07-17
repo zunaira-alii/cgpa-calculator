@@ -1,0 +1,190 @@
+<html>
+	<head>
+		
+		<title>Student Results</title>
+
+		<script type="text/javascript">
+		
+		function getReport(){
+
+					var grade = "";	 //declare a variable for grade
+					var  result="";	 //declare a variable for result
+
+					//read the marks
+					var engMarks = document.getElementById('txtEnglish').value;
+					var kannadaMarks = document.getElementById('txtKannada').value;
+					var mathsMarks = document.getElementById('txtMaths').value;
+					var scienceMarks = document.getElementById('txtScience').value;
+					var multi1 = document.getElementById('multi').value;
+					var datastruc1 = document.getElementById('datastruc').value;
+					var database1 = document.getElementById('database').value;
+					
+				//for check 	
+					
+			      
+					
+					
+					
+					
+					
+					//end
+					//calculate the total marks (using double notation technique)
+		var totalMarks = engMarks - (- kannadaMarks) - (- mathsMarks) - (- scienceMarks) - (- multi1) - (- datastruc1) - (- database1);
+		//var totalMarks1 = (engMarks*4.00) + ( kannadaMarks*3.00) + ( mathsMarks*3.00) + ( scienceMarks*2.00) + ( multi1*3.00) + ( datastruc1*4.00) + ( database1*3.00);		
+					//get the average marks
+					var averageMarks = totalMarks / 7;	
+				//	var gpa=totalmarks1/11.00;
+				
+				
+					//find the grade and result using the ternary operator inside the switch statement					
+					switch(
+					
+							//usage of ternary operator inside switch
+
+							(averageMarks > 90 && averageMarks <= 100) ? 1 : 
+							(averageMarks > 75 && averageMarks < 80) ? 2 : 
+							(averageMarks > 62 && averageMarks < 65) ? 3 : 
+							(averageMarks > 40 && averageMarks < 60) ? 4 : 0
+							
+						  )
+							
+							{
+								case 1 :grade = "A";result="First Class";break;
+								case 2 :grade = "B"; result="Second Class";break;
+								case 3 :grade = "C"; result="Third Class";break;
+								case 4 :grade = "D "; result="Fourth Class";break;
+								case 0 :grade = "E"; result="Fail";break;
+							}
+							
+						
+					//display the results	
+					document.getElementById('txtStudentName').value = document.getElementById('txtName').value;
+					document.getElementById('txtStudentClass').value = document.getElementById('txtClass').value;
+					document.getElementById('txtTotalMarks').value = totalMarks;
+					document.getElementById('txtAvgMarks').value = averageMarks;
+					//document.getElementById('txtAvgMar').value = averageMarks1;
+					document.getElementById('txtGrade').value = grade;
+					document.getElementById('txtResult').value = result;
+					
+					//check
+					
+					
+		
+		} //end of function getReport
+		
+		
+		
+		
+		
+		//start new function
+		function gettReport(){
+		
+		var a =document.getElementById('sub1').value;
+					var b =document.getElementById('su1').value;
+					var c =document.getElementById('s1').value;
+					var d =document.getElementById('sub2').value;
+					var e =document.getElementById('su2').value;
+					var f =document.getElementById('s2').value;
+					
+					
+					var  sum1=document.getElementById('result').value;
+				var  sum2=document.getElementById('resul').value;
+				var  fin=document.getElementById('over1').value;
+				
+				
+				
+				var c=a*b;
+				var f=d*e;
+				var sum1=(b)-(-e);
+				var sum2=c+f;
+				//var ch=b+e;
+				//var over=c+f;
+				var fin=sum2 / sum1;
+				
+				
+				
+		document.getElementById('s1').value = c;
+					document.getElementById('s2').value = f;
+					//extra
+					document.getElementById('result').value = sum1;
+					document.getElementById('resul').value = sum2;
+					//usaual
+					document.getElementById('over1').value=fin;		
+				
+		
+		
+		}
+		
+		</script>
+	</head>
+	<body>		
+			<fieldset style="width:600px">
+	    		<legend><b>Student Input Section:</b></legend>
+				Name:<input type="text" id="txtName"> &nbsp;&nbsp;
+				Semester:<input type="text" id="txtClass"> <br/><br/>
+				<table border="1">
+					<tr><td>English</td><td><input type="text" id="txtEnglish"><!--<input type="text" id="txtEnglish">--></td></tr>
+					<tr><td>Urdu</td><td><input type="text" id="txtKannada"><!--<input type="text" id="txtKannada">--></td></tr>
+					<tr><td>Maths</td><td><input type="text" id="txtMaths"><!--<input type="text" id="txtMaths">--></td></tr>
+					<tr><td>Ics</td><td><input type="text" id="txtScience"><!--<input type="text" id="txtScience">--></td></tr>
+					<tr><td>MultiCalculus</td><td><input type="text" id="multi"><!--<input type="text" id="multi">--></td></tr>
+					<tr><td>Data Structure</td><td><input type="text" id="datastruc"><!--<input type="text" id="datastruc">--></td></tr>
+					<tr><td>Data base</td><td><input type="text" id="database"><!--<input type="text" id="database">--></td></tr>
+				</table><br/><br/>
+				<input type="button" value="Get Result" onClick="getReport();">
+			</fieldset>
+			
+				<h2>Report Card</h2>
+				
+				<table border="1">
+					<tr><td>Name</td><td><input type="text" id="txtStudentName" readonly></td></tr>
+					<tr><td>Class</td><td><input type="text" id="txtStudentClass" readonly></td></tr>
+					<tr><td>Total Marks</td><td><input type="text" id="txtTotalMarks" readonly></td></tr>
+					<tr><td>Average Marks</td><td><input type="text" id="txtAvgMarks" readonly></td></tr>
+				<!--	<tr><td>CGPA</td><td><input type="text" id="txtAvgMar" readonly></td></tr>-->
+					<tr><td>Grade</td><td><input type="text" id="txtGrade" readonly></td></tr>
+					<tr><td>Remarks</td><td><input type="text" id="txtResult" readonly></td></tr>
+				</table>
+				
+				<table border="1">
+				<tr>
+				<th>Courses</th>
+				<th>Grade Point Equivalent</th>
+				<th>Credit hours</th>
+				<th>Grade Points</th>
+				
+				<!--<th>Calculate</th>--></tr>
+				
+				<tr><td>Subject1</td><td><input type="text" id="sub1" ></td>
+				<td><input type ="text" id="su1"></td>
+				<td><input type ="text" id="s1" readonly></td>
+				</td>
+				<!--<td><input type ="text" id ="re"></td>--></tr>
+				<tr><td>Subject2</td><td><input type="text" id="sub2" ></td>
+				<td><input type ="text" id="su2"></td>
+				<td><input type ="text" id="s2" readonly></td>
+				</tr>
+				<tr><td>total</td><td><input type="text" id="sub3" ></td>
+				<td><input type ="text" id="result"></td>
+				<td><input type ="text" id="resul" readonly></td>
+				</tr>
+				
+				<tr><td>CGPA</td><td><input type="text" id="s111" ></td>
+				<td><input type ="text" id="s"></td>
+				<td><input type ="text" id="over1" readonly></td>
+				</tr>
+				</table>
+				<input type="button" value="check GPA" onClick="gettReport();">
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+			
+	</body>
+</html>
